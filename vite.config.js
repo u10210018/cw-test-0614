@@ -6,5 +6,6 @@ export default defineConfig({
     plugins: [vue()],
     css: {
         devSourcemap: true
-    }
+    },
+    base: '/cw-test-0614/'
 });
