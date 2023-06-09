@@ -1,12 +1,15 @@
 <script setup>
+import { ref } from 'vue';
+import { useElementSize } from '@vueuse/core';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import './assets/style.css';
+
+const el = ref(null);
+const { width, height } = useElementSize(el);
 </script>
 
 <template>
-    <div>
-        <swiper class="my-swiper">
+    <div ref="el" class="py-20" v-motion-slide-bottom>
+        <swiper class="my-swiper w-[20vw] mx-auto border border-b-red-600">
             <swiper-slide>Slide 1</swiper-slide
             ><swiper-slide>Slide 2</swiper-slide
             ><swiper-slide>Slide 3</swiper-slide
@@ -20,8 +23,4 @@ import './assets/style.css';
     </div>
 </template>
 
-<style scoped lang="postcss">
-.my-swiper {
-    width: 300px;
-}
-</style>
+<style scoped lang="postcss"></style>
