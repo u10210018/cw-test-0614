@@ -1,0 +1,26 @@
+@layer components {
+    /* for normal content */
+    .container {
+        @apply mx-auto max-w-[1440px] px-6 md:px-[60px] lg:px-[220px];
+    }
+    .container-left {
+        @apply max-w-[1440px] pl-6 lg:pl-[60px] 2xl:max-w-[100vw] 2xl:pl-[calc(50vw-600px)];
+    }
+    .container-right {
+        @apply max-w-[1440px] pr-6 lg:pr-[60px] 2xl:max-w-[100vw] 2xl:pr-[calc(50vw-600px)];
+    }
+    /* for wider content */
+    .container-wider {
+        @apply mx-auto max-w-[1440px] px-6 md:px-[60px] lg:px-10;
+    }
+    .container-wider-left {
+        @apply max-w-[1440px] pl-6 lg:pl-[60px] 2xl:max-w-[100vw] 2xl:pl-[calc(50vw-600px)];
+    }
+    .container-wider-right {
+        @apply max-w-[1440px] pr-6 lg:pr-[60px] 2xl:max-w-[100vw] 2xl:pr-[calc(50vw-600px)];
+    }
+    /* for remove container */
+    .container-none {
+        @apply max-w-[100vw] px-0;
+    }
+}
