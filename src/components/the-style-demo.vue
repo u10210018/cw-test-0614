@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 import { useElementSize } from '@vueuse/core';
 
 const contentEl = ref(null);
@@ -73,6 +72,9 @@ const { width: widthWider } = useElementSize(contentWiderEl);
                     ></div>
                     <div
                         class="aspect-h-1 aspect-w-1 flex-grow border border-brand-01 bg-white"
+                    ></div>
+                    <div
+                        class="aspect-h-1 aspect-w-1 flex-grow bg-neutral-60"
                     ></div>
                     <div
                         class="aspect-h-1 aspect-w-1 flex-grow bg-neutral-40"
