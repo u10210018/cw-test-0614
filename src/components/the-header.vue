@@ -52,7 +52,7 @@ watch(isMenuOpen, (nVal) => {
             <div class="py-3 md:py-4">
                 <MyLink to="/" class="block h-[30px] md:h-10">
                     <MyImage
-                        src="/images/logo.svg"
+                        src="images/logo.svg"
                         alt="logo"
                         class="h-full w-auto object-contain"
                     />
