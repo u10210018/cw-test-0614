@@ -8,6 +8,7 @@ import ImageFrame from '~assets/svg/about-frame.svg?component';
     <div class="mb-28 mt-14 md:my-[120px]">
         <div class="container">
             <div class="flex">
+                <!-- 左方圖片 -->
                 <div
                     class="mr-14 hidden w-[36%] max-w-[360px] shrink-0 md:block lg:mr-[98px]"
                 >
@@ -20,9 +21,11 @@ import ImageFrame from '~assets/svg/about-frame.svg?component';
                             src-webp="images/about.webp"
                             alt="長照2.0，讓照顧的路上有專業相挺"
                             class="object-cover"
+                            loading="lazy"
                         />
                     </div>
                 </div>
+                <!-- 右方內容 -->
                 <div class="relative grow md:mt-10 md:pl-8 md:pr-20">
                     <div class="md:pt-2">
                         <h1 class="mb-4 text-h2 text-brand-01">

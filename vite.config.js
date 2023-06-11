@@ -18,7 +18,9 @@ export default defineConfig({
             vueTemplate: false,
             injectAtEnd: true
         }),
-        svgLoader()
+        svgLoader({
+            svgo: false
+        })
     ],
     css: {
         devSourcemap: true

@@ -1,5 +1,5 @@
 <script setup>
-import ButtonNav from '~components/button/nav.vue';
+import BtnNav from '~components/button/nav.vue';
 import MyImage from '~components/loader/image.vue';
 import MyLink from '~components/loader/link.vue';
 import { useWindowSize } from '@vueuse/core';
@@ -47,7 +47,7 @@ watch(isMenuOpen, (nVal) => {
 </script>
 
 <template>
-    <header class="fixed left-0 top-0 z-10 w-full bg-white/80 backdrop-blur-sm">
+    <header class="fixed left-0 top-0 z-40 w-full bg-white/80 backdrop-blur-sm">
         <div class="container-wider flex items-center">
             <div class="py-3 md:py-4">
                 <MyLink to="/" class="block h-[30px] md:h-10">
@@ -61,7 +61,7 @@ watch(isMenuOpen, (nVal) => {
             <div class="ml-auto py-[15px] md:py-7">
                 <nav class="hidden items-center md:flex">
                     <template v-for="item in headerList" :key="item.id">
-                        <ButtonNav
+                        <BtnNav
                             :url="item.url"
                             :name="item.name"
                             class="mx-6"
@@ -169,7 +169,7 @@ watch(isMenuOpen, (nVal) => {
                     <div class="mx-auto flex justify-center pb-20 pt-[14.5vh]">
                         <nav class="flex flex-col items-center">
                             <template v-for="item in headerList" :key="item.id">
-                                <ButtonNav
+                                <BtnNav
                                     :url="item.url"
                                     :name="item.name"
                                     class="my-6"

@@ -5,6 +5,7 @@ import MyImage from '~components/loader/image.vue';
 import { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
+// 原始資料
 const list = ref([
     {
         id: 1,
@@ -16,7 +17,8 @@ const list = ref([
             srcMobile: 'images/live-01.jpg',
             srcMobileWebp: 'images/live-01--mobile.webp',
             alt: '面對照顧壓力大？張曼娟：記得提醒自己，這一切都會過去的'
-        }
+        },
+        url: 'https://www.cw.com.tw/article/5125049'
     },
     {
         id: 2,
@@ -28,7 +30,8 @@ const list = ref([
             srcMobile: 'images/live-02.jpg',
             srcMobileWebp: 'images/live-02--mobile.webp',
             alt: '小六生可能已是照顧者日本小學生與失智者共開店'
-        }
+        },
+        url: 'https://www.cw.com.tw/article/5124631'
     },
     {
         id: 3,
@@ -40,7 +43,8 @@ const list = ref([
             srcMobile: 'images/live-03.jpg',
             srcMobileWebp: 'images/live-03--mobile.webp',
             alt: '不想活得又老又窮避開50歲最後悔的5個財務決定'
-        }
+        },
+        url: 'https://www.cw.com.tw/article/5123858'
     }
 ]);
 
@@ -48,6 +52,7 @@ const listForDuplicate = computed(() => {
     return [...list.value, ...list.value];
 });
 
+// for swiper
 const mySwiper = ref(null);
 const { list: breakpointList } = useMedia();
 const breakpoints = computed(() => ({
@@ -83,10 +88,14 @@ const slideToLoop = (index, speed, runCallbacks) => {
 
 <template>
     <div class="my-28 md:my-[120px]">
+        <!-- 標題 -->
+        <a id="live"></a>
         <div class="container mb-6 md:mb-[34px]">
             <div class="relative">
-                <h1 class="mb-4 text-h1 md:mb-0 md:ml-6">
-                    照顧現場<br /><strong>預見安心變老</strong>
+                <h1
+                    class="mb-4 text-h1 text-brand-01 first-line:text-neutral-20 md:mb-0 md:ml-6"
+                >
+                    照顧現場<br />預見安心變老
                 </h1>
                 <SectionSubtitle
                     class="left-0 top-[9px] origin-top-left md:absolute md:rotate-90"
@@ -95,10 +104,10 @@ const slideToLoop = (index, speed, runCallbacks) => {
             </div>
         </div>
         <div class="relative">
+            <!-- 圖片輪播 -->
             <div class="container-wider-left">
                 <swiper
                     class="rounded-tl-sm md:rounded-tl-md"
-                    effect="slide"
                     :modules="[Autoplay]"
                     :loop="true"
                     :autoplay="{
@@ -116,8 +125,11 @@ const slideToLoop = (index, speed, runCallbacks) => {
                         v-for="item in listForDuplicate"
                         :key="item.id"
                     >
-                        <div
-                            class="aspect-h-[220] aspect-w-[327] md:aspect-h-[640] md:aspect-w-[955]"
+                        <a
+                            :href="item.url"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="aspect-h-[220] aspect-w-[327] block md:aspect-h-[640] md:aspect-w-[955]"
                         >
                             <MyImage
                                 :src="item.image.src"
@@ -126,26 +138,30 @@ const slideToLoop = (index, speed, runCallbacks) => {
                                 :src-mobile-webp="item.image.srcMobileWebp"
                                 :alt="item.image.alt"
                                 class="h-full w-full object-cover"
+                                loading="lazy"
                             />
-                        </div>
+                            <div class="image-mask pointer-events-none"></div>
+                        </a>
                     </swiper-slide>
                 </swiper>
             </div>
+            <!-- 桌機的文字內容 -->
             <div
                 class="pointer-events-none absolute left-0 top-0 z-10 hidden h-full w-full md:block"
             >
                 <div
                     class="container flex h-full w-full flex-col justify-end pb-[59px] text-white"
                 >
-                    <div>
-                        <div
-                            class="pointer-events-auto mb-2 whitespace-pre-wrap text-h3"
+                    <div class="pointer-events-auto">
+                        <a
+                            :href="activeItem.url"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="mb-2 block whitespace-pre-wrap text-h3"
                         >
                             {{ activeItem.title }}
-                        </div>
-                        <div
-                            class="text-p4 pointer-events-auto whitespace-pre-wrap"
-                        >
+                        </a>
+                        <div class="text-p4 whitespace-pre-wrap">
                             {{ activeItem.desc }}
                         </div>
                         <div class="mb-10 mt-[15px] md:mt-[23px]">
@@ -163,9 +179,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
                                 />
                             </svg>
                         </div>
-                        <div
-                            class="pointer-events-auto -mx-[7.5px] flex items-center"
-                        >
+                        <div class="-mx-[7.5px] flex items-center">
                             <div
                                 v-for="idx in list.length"
                                 :key="idx"
@@ -186,6 +200,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
                     </div>
                 </div>
             </div>
+            <!-- 向右的按鍵 -->
             <div
                 class="pointer-events-none absolute left-0 top-1/2 z-10 w-full -translate-y-1/2"
             >
@@ -222,14 +237,18 @@ const slideToLoop = (index, speed, runCallbacks) => {
                 </div>
             </div>
         </div>
+        <!-- 手機的文字內容 -->
         <div class="container text-neutral-10 mt-[15px] md:hidden">
             <div>
-                <div
-                    class="pointer-events-auto mb-2 whitespace-pre-wrap text-h3"
+                <a
+                    :href="activeItem.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mb-2 block whitespace-pre-wrap text-h3"
                 >
                     {{ activeItem.title }}
-                </div>
-                <div class="text-p4 pointer-events-auto whitespace-pre-wrap">
+                </a>
+                <div class="text-p4 whitespace-pre-wrap">
                     {{ activeItem.desc }}
                 </div>
                 <div class="mb-4 mt-[15px]">
@@ -247,7 +266,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
                         />
                     </svg>
                 </div>
-                <div class="pointer-events-auto -mx-1.5 flex items-center">
+                <div class="-mx-1.5 flex items-center">
                     <div
                         v-for="idx in list.length"
                         :key="idx"
@@ -270,4 +289,12 @@ const slideToLoop = (index, speed, runCallbacks) => {
     </div>
 </template>
 
-<style scoped lang="postcss"></style>
+<style scoped lang="postcss">
+.image-mask {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 67.03%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+</style>

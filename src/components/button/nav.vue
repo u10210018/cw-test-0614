@@ -11,11 +11,25 @@ const props = defineProps({
         default: () => ''
     }
 });
+
+const scrollHandler = (url) => {
+    if (url === '/') {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+};
 </script>
 
 <template>
     <div class="relative">
-        <MyLink :to="url" active-class="link-exact-active">{{ name }}</MyLink>
+        <MyLink
+            :to="url"
+            active-class="link-exact-active"
+            @click="scrollHandler(url)"
+            >{{ name }}</MyLink
+        >
         <div
             class="hint-display absolute -bottom-1.5 left-1/2 hidden w-full -translate-x-1/2 md:block"
         >
@@ -37,15 +51,12 @@ const props = defineProps({
 :deep(a) {
     @apply transition;
     @media (hover: hover) {
-        &:not(.link-exact-active) {
-            @apply hover:opacity-50;
+        &:hover {
+            @apply text-brand-03;
+            & ~ .hint-display {
+                @apply scale-x-100;
+            }
         }
-    }
-}
-:deep(.link-exact-active) {
-    @apply text-brand-03;
-    & ~ .hint-display {
-        @apply scale-x-100;
     }
 }
 </style>

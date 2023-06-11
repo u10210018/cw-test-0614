@@ -1,6 +1,16 @@
 body {
     @apply scroll-smooth;
+    --header-height: 54px;
+    @screen md {
+        --header-height: 80px;
+    }
     &.no-scroll {
         @apply h-screen w-screen overflow-hidden;
     }
+}
+
+a:not([href]),
+a[href=''] {
+    @apply invisible relative block;
+    top: calc(-1 * var(--header-height) - 30px);
 }
