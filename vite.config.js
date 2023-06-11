@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { ViteAliases } from 'vite-aliases';
 import AutoImport from 'unplugin-auto-import/vite';
+import svgLoader from 'vite-svg-loader';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,7 +17,8 @@ export default defineConfig({
             dts: './auto-imports.d.ts',
             vueTemplate: false,
             injectAtEnd: true
-        })
+        }),
+        svgLoader()
     ],
     css: {
         devSourcemap: true

@@ -7,15 +7,30 @@
             "letterSpacing": "0.2em"
         }
     ],
-    "h2": [
+    "h2-d": [
         "clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem)",
         {
             "fontWeight": 700,
             "lineHeight": "1.4",
-            "letterSpacing": "clamp(0.00625rem, 0.004rem + 0.0094vw, 0.0125rem)"
+            "letterSpacing": "0.2em"
+        }
+    ],
+    "h2-m": [
+        "clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem)",
+        {
+            "fontWeight": 700,
+            "lineHeight": "1.4",
+            "letterSpacing": "0.1em"
         }
     ],
     "h3": [
+        "clamp(1.25rem, 0.9859rem + 1.1268vw, 2rem)",
+        {
+            "fontWeight": 700,
+            "lineHeight": "1.4"
+        }
+    ],
+    "h4": [
         "1.25rem",
         {
             "fontWeight": 700,
@@ -53,6 +68,14 @@
             "fontWeight": 400,
             "lineHeight": "1.4",
             "letterSpacing": "0.04em"
+        }
+    ],
+    "p4": [
+        "clamp(0.875rem, 0.831rem + 0.1878vw, 1rem)",
+        {
+            "fontWeight": 400,
+            "lineHeight": "1.6",
+            "letterSpacing": "0.1em"
         }
     ],
     "sup": [

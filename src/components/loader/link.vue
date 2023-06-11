@@ -3,6 +3,10 @@ import { RouterLink } from 'vue-router';
 
 const props = defineProps({
     ...RouterLink.props,
+    isExternalLink: {
+        type: Boolean,
+        default: () => false
+    },
     activeClass: {
         type: String,
         default: () => ''

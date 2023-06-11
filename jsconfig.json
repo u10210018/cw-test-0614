@@ -25,6 +25,12 @@
             ],
             "~loader/*": [
                 "src/components/loader/*"
+            ],
+            "~svg/*": [
+                "src/assets/svg/*"
+            ],
+            "~ui/*": [
+                "src/components/ui/*"
             ]
         }
     }

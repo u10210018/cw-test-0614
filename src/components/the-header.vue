@@ -47,7 +47,7 @@ watch(isMenuOpen, (nVal) => {
 </script>
 
 <template>
-    <header class="fixed left-0 top-0 w-full bg-white/80 backdrop-blur-sm">
+    <header class="fixed left-0 top-0 z-10 w-full bg-white/80 backdrop-blur-sm">
         <div class="container-wider flex items-center">
             <div class="py-3 md:py-4">
                 <MyLink to="/" class="block h-[30px] md:h-10">

@@ -20,7 +20,11 @@ const { width: widthWider } = useElementSize(contentWiderEl);
                 <strong>長照2.0，<br />讓照顧的路上有專業相挺</strong>
             </h2>
             <div class="col-span-1 text-end text-h3">h3</div>
-            <h3 class="col-span-2 text-h3">服務對象</h3>
+            <h3 class="col-span-2 text-h3">
+                面對照顧壓力大？張曼娟：<br />記得提醒自己，這一切都會過去的
+            </h3>
+            <div class="col-span-1 text-end text-h4">h4</div>
+            <h3 class="col-span-2 text-h4">服務對象</h3>
             <div class="col-span-1 text-end text-p">p</div>
             <div class="col-span-2 text-p">
                 台灣走向超高齡社會，速度比想像中還要快又急，隨著人口老化加速，未來需要照顧年長父母的青壯人口，只會增加，不會減少。
@@ -34,6 +38,10 @@ const { width: widthWider } = useElementSize(contentWiderEl);
             </div>
             <div class="text-p3 col-span-1 text-end">p3</div>
             <div class="text-p3 col-span-2">直接撥打長照專線1966</div>
+            <div class="text-p4 col-span-1 text-end">p4</div>
+            <div class="text-p4 col-span-2">
+                各位照顧者又要展開新的一年，每天闖關又常感到孤單的日子。
+            </div>
             <div class="text-sup col-span-1 text-end">sup</div>
             <div class="text-sup col-span-2 text-brand-01">LTCS Knowledge</div>
             <div class="text-sup2 col-span-1 text-end">sup2</div>
@@ -74,13 +82,16 @@ const { width: widthWider } = useElementSize(contentWiderEl);
                         class="aspect-h-1 aspect-w-1 flex-grow border border-brand-01 bg-white"
                     ></div>
                     <div
-                        class="aspect-h-1 aspect-w-1 flex-grow bg-neutral-60"
+                        class="bg-neutral-60 aspect-h-1 aspect-w-1 flex-grow"
                     ></div>
                     <div
                         class="aspect-h-1 aspect-w-1 flex-grow bg-neutral-40"
                     ></div>
                     <div
                         class="aspect-h-1 aspect-w-1 flex-grow bg-neutral-20"
+                    ></div>
+                    <div
+                        class="bg-neutral-10 aspect-h-1 aspect-w-1 flex-grow"
                     ></div>
                 </div>
                 <div class="mt-6 grid grid-cols-6 gap-2 lg:gap-5">
