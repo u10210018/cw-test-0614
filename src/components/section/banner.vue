@@ -49,4 +49,34 @@ import ScrollIndicator from '~assets/svg/scroll.svg?component';
     </div>
 </template>
 
-<style scoped lang="postcss"></style>
+<style scoped lang="postcss">
+@keyframes kv--fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes kv--fade-up--desktop {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+:deep(.kv--fade-up) {
+    opacity: 0;
+    animation: kv--fade-up .3s ease-in-out var(--delay, 0s) 1 forwards;
+    @screen md {
+        animation-duration: .4s;
+        animation-name: kv--fade-up--desktop;
+    }
+}
+</style>

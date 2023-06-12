@@ -51,6 +51,7 @@ const list = ref([
             <div class="container mb-[15px] md:mb-6">
                 <div class="relative">
                     <h1
+                        v-motion-slide-visible-bottom
                         class="mb-4 text-h1 text-brand-01 first-line:text-neutral-20 md:mb-0 md:ml-6"
                     >
                         5分鐘一看就懂<br />長照2.0
@@ -71,6 +72,7 @@ const list = ref([
                             v-for="(item, idx) in list"
                             :key="item.id"
                             :class="{ 'md:mt-10': !(idx % 2) }"
+                            v-motion-slide-visible-bottom
                         >
                             <div>
                                 <div class="mb-1.5">
@@ -165,7 +167,10 @@ const list = ref([
                         </div>
                     </div>
                     <!-- 底部的線條和連結按鍵 -->
-                    <div class="flex justify-center md:justify-start">
+                    <div
+                        v-motion-slide-visible-bottom
+                        class="flex justify-center md:justify-start"
+                    >
                         <div class="mt-16 hidden w-[51.19%] md:block">
                             <div class="aspect-h-[38] aspect-w-[434]">
                                 <svg
@@ -224,7 +229,7 @@ const list = ref([
         @apply list-none pl-6;
         counter-reset: my-counter;
         li {
-            @apply relative mx-0 mb-2.5 mt-0;
+            @apply relative mx-0 mb-0.5 mt-0;
             counter-increment: my-counter;
             &::before {
                 @apply absolute top-[3px] h-[var(--size)] w-[var(--size)] rounded-full bg-brand-01 text-center font-[10px] leading-[var(--size)] text-white;

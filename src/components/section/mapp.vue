@@ -48,6 +48,7 @@ const closeMask = () => (isMaskOpen.value = false);
         <div class="container mb-6 md:mb-8">
             <div class="relative">
                 <h1
+                    v-motion-slide-visible-bottom
                     class="mb-4 text-h1 text-brand-01 first-line:text-neutral-20 md:mb-0 md:ml-6"
                 >
                     長照地圖<br />厝邊好朋友
@@ -80,6 +81,7 @@ const closeMask = () => (isMaskOpen.value = false);
                         class="h-[calc(100%-60px)] w-[calc(100%-60px)] rounded-bl-sm rounded-tr-sm bg-white md:rounded-bl-md md:rounded-tr-md"
                     >
                         <div class="grid h-full w-full place-content-center">
+                            <!-- 桌機內容 -->
                             <div
                                 class="hidden max-w-[840px] gap-[75px] md:grid md:grid-cols-3"
                             >
@@ -90,6 +92,7 @@ const closeMask = () => (isMaskOpen.value = false);
                                         'md:mt-10': idx === 1,
                                         'md:mt-[103px]': idx === 2
                                     }"
+                                    v-motion-slide-visible-bottom
                                 >
                                     <div class="mb-4 flex justify-center">
                                         <MapIcon1
@@ -111,7 +114,9 @@ const closeMask = () => (isMaskOpen.value = false);
                                     <div>{{ item.desc }}</div>
                                 </div>
                             </div>
+                            <!-- 手機內容 -->
                             <div
+                                v-motion-slide-visible-bottom
                                 class="grid md:hidden"
                             >
                                 <swiper
@@ -147,7 +152,11 @@ const closeMask = () => (isMaskOpen.value = false);
                                     </swiper-slide>
                                 </swiper>
                             </div>
-                            <div class="mt-14 flex justify-center md:mt-12">
+                            <!-- 底部按鍵 -->
+                            <div
+                                v-motion-slide-visible-bottom
+                                class="mt-14 flex justify-center md:mt-12"
+                            >
                                 <button type="button" @click="closeMask">
                                     <BtnPrimary>尋找附近的長照服務</BtnPrimary>
                                 </button>

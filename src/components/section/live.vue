@@ -93,6 +93,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
         <div class="container mb-6 md:mb-[34px]">
             <div class="relative">
                 <h1
+                    v-motion-slide-visible-bottom
                     class="mb-4 text-h1 text-brand-01 first-line:text-neutral-20 md:mb-0 md:ml-6"
                 >
                     照顧現場<br />預見安心變老
@@ -103,7 +104,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
                 />
             </div>
         </div>
-        <div class="relative">
+        <div v-motion-fade-visible class="relative">
             <!-- 圖片輪播 -->
             <div class="container-wider-left">
                 <swiper
@@ -153,17 +154,21 @@ const slideToLoop = (index, speed, runCallbacks) => {
                     class="container flex h-full w-full flex-col justify-end pb-[59px] text-white"
                 >
                     <div class="pointer-events-auto">
-                        <a
-                            :href="activeItem.url"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="mb-2 block whitespace-pre-wrap text-h3"
-                        >
-                            {{ activeItem.title }}
-                        </a>
-                        <div class="text-p4 whitespace-pre-wrap">
-                            {{ activeItem.desc }}
-                        </div>
+                        <transition mode="out-in">
+                            <div :key="activeIdx">
+                                <a
+                                    :href="activeItem.url"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="mb-2 block whitespace-pre-wrap text-h3"
+                                >
+                                    {{ activeItem.title }}
+                                </a>
+                                <div class="text-p4 whitespace-pre-wrap">
+                                    {{ activeItem.desc }}
+                                </div>
+                            </div>
+                        </transition>
                         <div class="mb-10 mt-[15px] md:mt-[23px]">
                             <svg
                                 width="215"
@@ -296,5 +301,23 @@ const slideToLoop = (index, speed, runCallbacks) => {
         rgba(0, 0, 0, 0) 67.03%,
         rgba(0, 0, 0, 0.8) 100%
     );
+}
+
+.v-enter-active,
+.v-leave-active {
+    @apply transition-opacity;
+}
+
+.v-enter-active {
+    @apply duration-[400ms] ease-out;
+}
+
+.v-leave-active {
+    @apply duration-[300ms] ease-in;
+}
+
+.v-enter-from,
+.v-leave-to {
+    @apply opacity-0;
 }
 </style>
