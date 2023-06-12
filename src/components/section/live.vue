@@ -93,7 +93,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
         <div class="container mb-6 md:mb-[34px]">
             <div class="relative">
                 <h1
-                    v-motion-slide-visible-bottom
+                    v-motion-slide-visible-once-bottom
                     class="mb-4 text-h1 text-brand-01 first-line:text-neutral-20 md:mb-0 md:ml-6"
                 >
                     照顧現場<br />預見安心變老
@@ -104,7 +104,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
                 />
             </div>
         </div>
-        <div v-motion-fade-visible class="relative">
+        <div v-motion-fade-visible-once class="relative">
             <!-- 圖片輪播 -->
             <div class="container-wider-left">
                 <swiper
@@ -140,6 +140,8 @@ const slideToLoop = (index, speed, runCallbacks) => {
                                 :alt="item.image.alt"
                                 class="h-full w-full object-cover"
                                 loading="lazy"
+                                width="955"
+                                height="640"
                             />
                             <div class="image-mask pointer-events-none"></div>
                         </a>
@@ -192,6 +194,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
                             >
                                 <button
                                     type="button"
+                                    :aria-label="`go to slide ${idx - 1}`"
                                     class="ib h-2 w-2 rounded-full border transition"
                                     :class="
                                         activeIdx === idx - 1
@@ -213,6 +216,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
                     <div class="ml-auto pr-4 md:pr-20">
                         <button
                             type="button"
+                            :aria-label="`slide next`"
                             class="pointer-events-auto"
                             @click="slideNext"
                         >
@@ -279,6 +283,7 @@ const slideToLoop = (index, speed, runCallbacks) => {
                     >
                         <button
                             type="button"
+                            :aria-label="`go to slide ${idx - 1}`"
                             class="ib h-2 w-2 rounded-full border transition"
                             :class="
                                 activeIdx === idx - 1

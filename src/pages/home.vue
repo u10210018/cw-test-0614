@@ -12,7 +12,7 @@ import SectionMap from '~components/section/mapp.vue';
         <SectionBanner />
 
         <!-- LONG TERM CARE SERVICES: 長照2.0 - 讓照顧的路上有專業相挺 -->
-        <SectionAbout v-motion-slide-bottom />
+        <SectionAbout />
 
         <!-- LTCS LIVE: 照顧現場 - 預見安心變老 -->
         <SectionLive />

@@ -13,6 +13,7 @@ const srcString = computed(
 
 <template>
     <iframe
+        title="google map"
         :src="srcString"
         width="1280"
         height="540"

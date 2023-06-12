@@ -48,7 +48,7 @@ const closeMask = () => (isMaskOpen.value = false);
         <div class="container mb-6 md:mb-8">
             <div class="relative">
                 <h1
-                    v-motion-slide-visible-bottom
+                    v-motion-slide-visible-once-bottom
                     class="mb-4 text-h1 text-brand-01 first-line:text-neutral-20 md:mb-0 md:ml-6"
                 >
                     長照地圖<br />厝邊好朋友
@@ -92,7 +92,7 @@ const closeMask = () => (isMaskOpen.value = false);
                                         'md:mt-10': idx === 1,
                                         'md:mt-[103px]': idx === 2
                                     }"
-                                    v-motion-slide-visible-bottom
+                                    v-motion-slide-visible-once-bottom
                                 >
                                     <div class="mb-4 flex justify-center">
                                         <MapIcon1
@@ -116,7 +116,7 @@ const closeMask = () => (isMaskOpen.value = false);
                             </div>
                             <!-- 手機內容 -->
                             <div
-                                v-motion-slide-visible-bottom
+                                v-motion-slide-visible-once-bottom
                                 class="grid md:hidden"
                             >
                                 <swiper
@@ -154,10 +154,14 @@ const closeMask = () => (isMaskOpen.value = false);
                             </div>
                             <!-- 底部按鍵 -->
                             <div
-                                v-motion-slide-visible-bottom
+                                v-motion-slide-visible-once-bottom
                                 class="mt-14 flex justify-center md:mt-12"
                             >
-                                <button type="button" @click="closeMask">
+                                <button
+                                    type="button"
+                                    aria-label="尋找附近的長照服務"
+                                    @click="closeMask"
+                                >
                                     <BtnPrimary>尋找附近的長照服務</BtnPrimary>
                                 </button>
                             </div>

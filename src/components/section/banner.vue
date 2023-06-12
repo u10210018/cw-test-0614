@@ -11,12 +11,15 @@ import ScrollIndicator from '~assets/svg/scroll.svg?component';
             class="aspect-h-[667] aspect-w-[375] md:aspect-h-10 md:aspect-w-16"
         >
             <MyImage
+                v-motion-fade
                 src="images/banner.jpg"
                 src-webp="images/banner.webp"
                 src-mobile="images/banner-mobile.jpg"
                 src-mobile-webp="images/banner-mobile.webp"
                 alt="logo"
                 class="h-full w-full object-cover"
+                width="1440"
+                height="900"
             />
             <div>
                 <div
@@ -32,8 +35,8 @@ import ScrollIndicator from '~assets/svg/scroll.svg?component';
                     <div class="container">
                         <div class="w-[42px]">
                             <div class="aspect-h-[85] aspect-w-[42]">
-                            <ScrollIndicator />
-                        </div>
+                                <ScrollIndicator />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -73,9 +76,9 @@ import ScrollIndicator from '~assets/svg/scroll.svg?component';
 }
 :deep(.kv--fade-up) {
     opacity: 0;
-    animation: kv--fade-up .3s ease-in-out var(--delay, 0s) 1 forwards;
+    animation: kv--fade-up 0.3s ease-in-out var(--delay, 0s) 1 forwards;
     @screen md {
-        animation-duration: .4s;
+        animation-duration: 0.4s;
         animation-name: kv--fade-up--desktop;
     }
 }

@@ -8,10 +8,11 @@ export default createRouter({
             path: '/',
             component: Home
         },
-        {
-            path: '/style',
-            component: () => import('~pages/style.vue')
-        }
+        // for style check
+        // {
+        //     path: '/style',
+        //     component: () => import('~pages/style.vue')
+        // }
     ],
     scrollBehavior(to, from, savedPosition) {
         if (to.hash) {

@@ -55,6 +55,8 @@ watch(isMenuOpen, (nVal) => {
                         src="images/logo.svg"
                         alt="logo"
                         class="h-full w-auto object-contain"
+                        width="282"
+                        height="40"
                     />
                 </MyLink>
             </div>

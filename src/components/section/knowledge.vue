@@ -51,7 +51,7 @@ const list = ref([
             <div class="container mb-[15px] md:mb-6">
                 <div class="relative">
                     <h1
-                        v-motion-slide-visible-bottom
+                        v-motion-slide-visible-once-bottom
                         class="mb-4 text-h1 text-brand-01 first-line:text-neutral-20 md:mb-0 md:ml-6"
                     >
                         5分鐘一看就懂<br />長照2.0
@@ -72,7 +72,7 @@ const list = ref([
                             v-for="(item, idx) in list"
                             :key="item.id"
                             :class="{ 'md:mt-10': !(idx % 2) }"
-                            v-motion-slide-visible-bottom
+                            v-motion-slide-visible-once-bottom
                         >
                             <div>
                                 <div class="mb-1.5">
@@ -151,14 +151,16 @@ const list = ref([
                                                     "
                                                     :alt="item.image.alt"
                                                     class="h-full w-full object-cover"
+                                                    width="198"
+                                                    height="198"
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="mb-1 text-h4 text-brand-01">
+                                <div class="mb-1 text-h4 text-brand-01">
                                     {{ item.title }}
-                                </h4>
+                                </div>
                                 <div
                                     class="text-p2 desc-custom-html"
                                     v-html="item.desc"
@@ -168,7 +170,7 @@ const list = ref([
                     </div>
                     <!-- 底部的線條和連結按鍵 -->
                     <div
-                        v-motion-slide-visible-bottom
+                        v-motion-slide-visible-once-bottom
                         class="flex justify-center md:justify-start"
                     >
                         <div class="mt-16 hidden w-[51.19%] md:block">
