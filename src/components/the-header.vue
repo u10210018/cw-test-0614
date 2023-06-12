@@ -127,7 +127,7 @@ watch(isMenuOpen, (nVal) => {
     </header>
     <teleport to="body">
         <div
-            class="fixed left-0 top-0 z-10 h-screen w-full bg-white transition duration-300 md:hidden"
+            class="fixed left-0 top-0 z-40 h-screen w-full bg-white transition duration-300 md:hidden"
             :class="isMenuOpen ? 'translate-x-0' : 'translate-x-[calc(101%)]'"
         >
             <div class="container-wider">
@@ -175,6 +175,7 @@ watch(isMenuOpen, (nVal) => {
                                     :url="item.url"
                                     :name="item.name"
                                     class="my-6"
+                                    @click="closeMenu"
                                 />
                                 <div
                                     class="bg-neutral-60 h-px w-full last:hidden"
